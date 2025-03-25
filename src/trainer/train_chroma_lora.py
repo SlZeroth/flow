@@ -209,10 +209,10 @@ def prepare_sot_pairings(latents):
     noise = torch.randn_like(latents)
 
     # compute OT pairings
-    transport_cost, indices = cosine_optimal_transport(
-        latents.reshape(n, -1), noise.reshape(n, -1)
-    )
-    noise = noise[indices[1].view(-1)]
+    # transport_cost, indices = cosine_optimal_transport(
+    #     latents.reshape(n, -1), noise.reshape(n, -1)
+    # )
+    # noise = noise[indices[1].view(-1)]
 
     # random lerp points
     noisy_latents = latents * (1 - timesteps) + noise * timesteps
